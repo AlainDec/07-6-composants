@@ -1,30 +1,82 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
 
 export default function App() {
 
   const data = require('./data/tp.json');
 
-  const readData = data.map( (value, index) => { 
-    return (
-      <View style={styles.block}>
+  /*
+  // Version avec boucle FOR simple
+  let readData = [];
+  for (let index = 0; index < data.length; index++) {
+    readData.push (<View style={styles.block} key={index}>
+      <Image source={{uri: data[index].img}} style={styles.img} />
+      <View style={styles.text}>
+        <Text style={styles.title}>{data[index].title}</Text>
+        <Text style={styles.desc}>{data[index].desc}</Text>
+      </View>
+    </View>);
+  }
+  return readData;
+  */
+
+  /*
+  // Version avec boucle FOR OF et entries
+  let readData = [];
+  for (const [index, value] of data.entries()) {
+    readData.push (<View style={styles.block} key={index}>
         <Image source={{uri: value.img}} style={styles.img} />
         <View style={styles.text}>
-          <Text key={index} style={styles.title}>{value.title}</Text>
+          <Text style={styles.title}>{value.title}</Text>
+          <Text style={styles.desc}>{value.desc}</Text>
+        </View>
+      </View>);
+  }
+  return readData;
+  */
+
+  /*
+  // version avec FOREACH
+  let readData = [];
+  data.forEach( (value, index) => { 
+    readData.push (
+      <View style={styles.block} key={index}>
+        <Image source={{uri: value.img}} style={styles.img} />
+        <View style={styles.text}>
+          <Text style={styles.title}>{value.title}</Text>
           <Text style={styles.desc}>{value.desc}</Text>
         </View>
       </View>
     )
   });
+  return readData;
+  */
+
+  // version avec MAP qui crée un nouveau tableau
+  const readData = data.map( (value, index) => { 
+    return (
+      <View style={styles.block} key={index}>
+        <Image source={{uri: value.img}} style={styles.img} />
+        <View style={styles.text}>
+          <Text style={styles.title}>{value.title}</Text>
+          <Text style={styles.desc}>{value.desc}</Text>
+        </View>
+      </View>
+    )
+  });
+ 
+
 
   return (
-      <ScrollView>{readData}</ScrollView>
+    <ScrollView>{readData}</ScrollView>
   );
 }
+
+const dim = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   img: {
     width: '40%',
-    height: 150
+    height: 'auto',
   },
   block: {
     flex: 1,
