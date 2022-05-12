@@ -22,10 +22,16 @@ const CustomBtn = (props) => {
         default          : btnBackgroundColor = '#007bff';
     }
 
+    const bgButton = {
+        backgroundColor: btnBackgroundColor
+    }
         
+    // test avec 2 méthodes pour gérer les styles
+    // bgButton : contient l'objet complet
+    // {color : btnTxtColor} : contient la propriété, et la variable
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={[styles.touchable, {backgroundColor : btnBackgroundColor}]}>
+            <TouchableOpacity style={[styles.touchable, bgButton]}>
                 <Text style={[styles.text, {color : btnTxtColor}]}>{title}</Text>
             </TouchableOpacity>
         </View>
@@ -53,4 +59,5 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     color: 'white',
   },
+
 });
