@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
+import CustomBtn from './components/CustomBtn';
 
 export default function App() {
 
@@ -67,7 +68,10 @@ export default function App() {
 
 
   return (
-    <ScrollView>{readData}</ScrollView>
+    <ScrollView>
+      <CustomBtn title='Mes félicitations !' type='warning' />
+      {readData}
+    </ScrollView>
   );
 }
 
