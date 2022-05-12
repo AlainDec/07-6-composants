@@ -26,7 +26,7 @@ const CustomBtn = (props) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={[styles.touchable, {backgroundColor : btnBackgroundColor}]}>
-            <Text style={[styles.text, {color : btnTxtColor}]}>{title}</Text>
+                <Text style={[styles.text, {color : btnTxtColor}]}>{title}</Text>
             </TouchableOpacity>
         </View>
     );
