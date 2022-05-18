@@ -24,6 +24,9 @@ const CustomBtn = (props) => {
 
     const bgButton = {
         backgroundColor: btnBackgroundColor
+        // Si je veux ajouter toutes les propriétés d'une classe à bgButton,
+        // je peux faire cette manip très intéressantes avec le destructuring :
+        // const bgButton = { ...styles.text, backgroundColor: btnBackgroundColor }
     }
         
     // test avec 2 méthodes pour gérer les styles

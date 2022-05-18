@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import CustomBtn from './components/CustomBtn';
+import CustomData from './components/CustomData';
 
 export default function App() {
 
@@ -52,6 +53,7 @@ export default function App() {
   return readData;
   */
 
+  /*
   // version avec MAP qui crée un nouveau tableau
   const readData = data.map( (value, index) => { 
     return (
@@ -61,6 +63,20 @@ export default function App() {
           <Text style={styles.title}>{value.title}</Text>
           <Text style={styles.desc}>{value.desc}</Text>
         </View>
+      </View>
+    )
+  });
+  */
+
+  // version avec MAP mais appelant un module externe
+  const readData = data.map( (value, index) => { 
+    return (
+      <View style={styles.block} key={index}>
+        <CustomData 
+          urlImg={{uri: value.img}}
+          title={value.title}
+          desc={value.desc}
+        />
       </View>
     )
   });
